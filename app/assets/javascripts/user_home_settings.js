@@ -24,9 +24,11 @@ document.addEventListener("turbolinks:load", function () {
         Rails.ajax({
             url: $user_form.attr('action'),
             type: "PATCH",
-            data: $user_form.serialize()
+            data: $user_form.serialize(),
+            success: function() {
+                location.reload();
+            }
         });
-        window.location.reload();
 
     });
 
