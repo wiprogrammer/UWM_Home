@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>User Home Settings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Home widget</th>
+      <th>User</th>
+      <th>Position</th>
+      <th>Visibility</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_home_settings.each do |user_home_setting| %>
+      <tr>
+        <td><%= user_home_setting.home_widget %></td>
+        <td><%= user_home_setting.user %></td>
+        <td><%= user_home_setting.position %></td>
+        <td><%= user_home_setting.visibility %></td>
+        <td><%= link_to 'Show', user_home_setting %></td>
+        <td><%= link_to 'Edit', edit_user_home_setting_path(user_home_setting) %></td>
+        <td><%= link_to 'Destroy', user_home_setting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User Home Setting', new_user_home_setting_path %>

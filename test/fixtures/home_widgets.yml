@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  description: MyText
+  color: MyText
+  default_visibility: false
+  link: MyText
+
+two:
+  name: MyText
+  description: MyText
+  color: MyText
+  default_visibility: false
+  link: MyText

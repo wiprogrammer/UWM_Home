@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  home_widget: one
+  user: one
+  position: 1
+  visibility: false
+
+two:
+  home_widget: two
+  user: two
+  position: 1
+  visibility: false

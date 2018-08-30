@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Home widget:</strong>
+  <%= @user_home_setting.home_widget %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_home_setting.user %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @user_home_setting.position %>
+</p>
+
+<p>
+  <strong>Visibility:</strong>
+  <%= @user_home_setting.visibility %>
+</p>
+
+<%= link_to 'Edit', edit_user_home_setting_path(@user_home_setting) %> |
+<%= link_to 'Back', user_home_settings_path %>

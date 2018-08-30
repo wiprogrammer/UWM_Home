@@ -1,0 +1,71 @@
+<% if current_user %>
+
+  <div class="container">
+    <div id="widgets" class="card-columns mb-3 text-center" data-url="<%= sort_user_home_settings_path %>">
+
+      <% @user_widgets.each do |w|
+        next unless w.visibility==true    %>
+        <div class="card mb-4 shadow-sm"  id="<%= dom_id(w) %>">
+
+          <div class="card-header bg-white" style="border-bottom: #ffffff">
+            <h4 class="my-0 font-weight-normal"><%= w.home_widget.name %></h4>
+          </div>
+
+
+          <div class="card-body">
+            <%= w.home_widget.description %>
+          </div>
+
+
+          <div class="card-footer" style="background-color: <%= w.home_widget.color %>">
+            <a href="<%= w.home_widget.link %>">
+              <h6 class="my-0 font-weight-small">Launch Full App</h6>
+            </a>
+          </div>
+
+        </div>
+
+      <% end %>
+
+    </div>
+  </div>
+
+
+
+  <div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="settingsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+
+      <div class="modal-content">
+        <form action="<%= shown_user_home_settings_path %>" method="post" id="user_settings_form">
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          <div class="modal-header">
+            <h5 class="modal-title" id="settingsModalLabel">Homepage Widgets</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <% @user_widgets.each do |w| %>
+              <%= check_box_tag "user_home_setting_id[]", w.id, checked = w.visibility  %>
+              <%= w.home_widget.name %>
+              <br>
+            <% end %>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" id="user_setting_submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+<% else %>
+
+  Please Sign In
+
+
+
+<% end %>

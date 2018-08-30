@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>UWMHome</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="/">UW-Madison</a>
+    <form class="form-inline">
+      <% if current_user %>
+        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#settingsModal">
+          Add More Widgets
+        </button>
+        <div style="padding-left: 10px;">
+          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'btn btn-outline-warning' %>
+        </div>
+
+      <% else %>
+
+        <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-outline-success' %>
+
+        <div style="padding-left: 10px;">
+          <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-outline-primary' %>
+        </div>
+
+      <% end %>
+
+
+    </form>
+  </nav>
+    <%= render 'layouts/alerts' %>
+    <%= yield %>
+  </body>
+</html>

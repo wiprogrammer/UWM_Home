@@ -1,0 +1,37 @@
+<%= form_with(model: user_home_setting, local: true) do |form| %>
+  <% if user_home_setting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user_home_setting.errors.count, "error") %> prohibited this user_home_setting from being saved:</h2>
+
+      <ul>
+      <% user_home_setting.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :home_widget_id %>
+    <%= form.text_field :home_widget_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :position %>
+    <%= form.number_field :position %>
+  </div>
+
+  <div class="field">
+    <%= form.label :visibility %>
+    <%= form.check_box :visibility %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

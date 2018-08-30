@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @home_widget.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @home_widget.description %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @home_widget.color %>
+</p>
+
+<p>
+  <strong>Default visibility:</strong>
+  <%= @home_widget.default_visibility %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @home_widget.link %>
+</p>
+
+<%= link_to 'Edit', edit_home_widget_path(@home_widget) %> |
+<%= link_to 'Back', home_widgets_path %>
